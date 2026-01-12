@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin - THE 10 MILLION PIXELS PLUS</title></head>
+<body style="background:#000; color:#fff; padding:40px; font-family:sans-serif;">
+    <h2 style="color:#FFD700;">PENDING ORDERS</h2>
+    <div id="orderList">Loading orders...</div>
+    <br><br>
+    <a href="index.html" style="background:#333; color:#fff; padding:10px 20px; text-decoration:none; border-radius:5px;">← BACK TO WEBSITE</a>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+    <script>
+        firebase.initializeApp({databaseURL: "https://the-10-million-pixels-plus-default-rtdb.firebaseio.com/"});
+        const db = firebase.database();
+        db.ref('pending_orders').on('value', s => {
+            const list = document.getElementById('orderList'); list.innerHTML = "";
+            const data = s.val(); if(!data) { list.innerHTML="No pending orders."; return; }
+            Object.keys(data).forEach(id => {
+                list.innerHTML += `<div style="border:1px solid #FFD700; padding:15px; margin-bottom:10px;">
+                    ${data[id].name} (${data[id].pixelCount} px) <br>
+                    <input type="text" id="img_${id}" placeholder="Image Direct URL" style="width:250px;">
+                    <button onclick="approve('${id}')">APPROVE</button>
+                </div>`;
+            });
+        });
+        function approve(id){
+            const img = document.getElementById('img_'+id).value; if(!img) return alert("Image URL missing!");
+            db.ref('pending_orders/'+id).once('value', s => {
+                let d = s.val(); d.imageUrl = img;
+                db.ref('pixels/'+id).set(d).then(()=>db.ref('pending_orders/'+id).remove());
+                alert("Order Published!");
+            });
+        }
+    </script>
+</body>
+</html>
