@@ -1,0 +1,36 @@
+:root { --gold: #FFD700; --dark: #000; }
+body { margin: 0; background: #0a0a0a; font-family: 'Arial Black', sans-serif; overflow-x: hidden; }
+
+/* Side Buttons */
+.side-controls { position: fixed; right: 20px; top: 55%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 2000; }
+.control-btn { background: #fff; border: 2px solid var(--gold); width: 48px; height: 48px; border-radius: 8px; cursor: pointer; font-size: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: 0.3s; }
+
+#search-panel { position: fixed; right: 80px; top: 50%; transform: translateY(-50%); background: #fff; width: 220px; border-radius: 8px; padding: 15px; z-index: 1999; box-shadow: -5px 0 20px rgba(0,0,0,0.5); }
+.search-hidden { display: none; }
+#searchInput { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+
+/* Header Styling */
+.top-bar { background: #111; padding: 10px 30px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--gold); }
+.back-nav-btn { background: transparent; border: 1px solid #444; color: #fff; padding: 5px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; }
+.pay-btn { border: none; padding: 10px 15px; font-weight: bold; border-radius: 5px; font-size: 11px; cursor: pointer; }
+.binance { background: #F3BA2F; margin-right: 5px; } .usdt { background: #26A17B; color: #fff; }
+
+/* Colorful Social Icons */
+.social-links a { font-size: 20px; margin-left: 15px; transition: 0.3s; }
+.fb { color: #1877F2; } .tw { color: #1DA1F2; } .tg { color: #0088cc; } .yt { color: #FF0000; } .ig { color: #C13584; }
+
+.hero-section { height: 130px; background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+.brand-title { color: var(--gold); font-size: 38px; font-weight: 900; z-index: 5; margin: 0; text-shadow: 0 0 15px rgba(255, 215, 0, 0.6); }
+.promo-msg { color: #ccc; font-size: 12px; z-index: 5; margin-top: 5px; font-family: sans-serif; letter-spacing: 1px; }
+
+/* White Map Area with Black Grid */
+.map-container { width: 95%; max-width: 1200px; height: 600px; margin: 20px auto; border: 5px solid #333; background: #fff; position: relative; border-radius: 10px; box-shadow: 0 0 40px rgba(0,0,0,0.8); }
+#viewport { width: 100%; height: 100%; overflow: hidden; position: relative; cursor: grab; background: #fff; }
+#mover { position: absolute; transform-origin: 0 0; }
+
+.nav-bar { background: #fff; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-top: 2px solid var(--gold); }
+.buy-now-btn { background: #cc0000; color: #fff; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: 900; animation: glow 1.5s infinite; }
+
+.wa-float { position: fixed; bottom: 90px; right: 30px; background: #25D366; color: #fff; padding: 12px 20px; border-radius: 50px; text-decoration: none; display: flex; align-items: center; font-weight: bold; box-shadow: 0 5px 20px rgba(0,0,0,0.4); z-index: 1000; }
+.wa-label { margin-left: 10px; font-size: 12px; }
+.hover-box { position: absolute; background: rgba(0,0,0,0.9); color: #fff; padding: 6px 12px; border-radius: 4px; font-size: 12px; display: none; z-index: 3000; border-left: 3px solid var(--gold); pointer-events: none; }
