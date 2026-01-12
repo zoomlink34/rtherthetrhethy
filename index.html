@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>THE 10 MILLION PIXELS PLUS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+<canvas id="trailCanvas"></canvas>
+
+<div class="side-controls">
+    <button class="control-btn" title="Search" onclick="toggleSearch()"><i class="fas fa-search"></i></button>
+    <button class="control-btn" title="Zoom In" onclick="zoomIn()"><i class="fas fa-plus"></i></button>
+    <button class="control-btn" title="Zoom Out" onclick="zoomOut()"><i class="fas fa-minus"></i></button>
+</div>
+
+<div id="search-panel" class="search-hidden">
+    <div class="search-header">Search Brand <i class="fas fa-times" onclick="toggleSearch()" style="cursor:pointer"></i></div>
+    <input type="text" id="searchInput" placeholder="Type name..." onkeyup="searchPixel()">
+    <div id="searchResult" class="result-box"></div>
+</div>
+
+<header class="main-header">
+    <div class="top-bar">
+        <button class="back-nav-btn" onclick="window.history.back()"><i class="fas fa-arrow-left"></i> BACK</button>
+        <div class="payment-section">
+            <button class="pay-btn binance" onclick="copy('912221034')">BINANCE ID: 912221034</button>
+            <button class="pay-btn usdt" onclick="copy('TTapBkTqrDnzHbWzek6wSBUTcJKFmR8Ws6')">USDT (TRC20)</button>
+        </div>
+        <div class="social-links">
+            <a href="#" class="fb"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="tw"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="tg"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="yt"><i class="fab fa-youtube"></i></a>
+            <a href="#" class="ig"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+
+    <div class="hero-section">
+        <canvas id="fireCanvas"></canvas>
+        <h1 class="brand-title">THE 10 MILLION PIXELS PLUS</h1>
+        <p class="promo-msg">WhatsApp us to share your links on our 5 social platforms!</p>
+    </div>
+
+    <div class="nav-bar">
+        <div class="stats"><i class="fas fa-th"></i> <span id="pixel-count-display">0</span> / 10,000,000 SOLD</div>
+        <a href="order.html" class="buy-now-btn">ADVERTISE NOW ($0.05 / PX)</a>
+    </div>
+</header>
+
+<main class="map-container">
+    <div id="viewport">
+        <div id="mover"><canvas id="mainCanvas"></canvas></div>
+        <div id="hover-info" class="hover-box"></div>
+    </div>
+</main>
+
+<a href="https://wa.me/8801576940717" class="wa-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-label">CUSTOMER SUPPORT</span>
+</a>
+
+<script src="script.js"></script>
+<script>
+    function copy(t){navigator.clipboard.writeText(t).then(()=>alert("Copied: "+t));}
+</script>
+</body>
+</html>
